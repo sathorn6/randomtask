@@ -1,0 +1,91 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+main {
+  max-width: 500px;
+  padding: 0 50px 20px;
+  margin: 0 auto;
+}
+
+button {
+  background-color: #0094FD;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+}
+button[disabled] {
+  background-color: #999;
+}
+button.small {
+  color: #0094FD;
+  padding: 10px;
+  background: none;
+  border: 1px solid #0094FD;
+}
+
+span.btn {
+  display: inline-block;
+  padding: 5px;
+  color: #666;
+  cursor: pointer;
+}
+span.btn:hover {
+  color: #000;
+}
+
+.pull-right {
+  float: right;
+}
+
+.task-list li {
+  padding: 5px 10px;
+}
+.task-list li span.repeat.enabled {
+  color: #0094FD;
+}
+.task-list li span.delete, .task-list li span.repeat.disabled {
+  display: none;
+}
+.task-list li:hover span {
+  display: inline-block !important;
+}
+.task-list li:hover span.repeat.enabled {
+  color: #0094FD;
+}
+
+.add-task {
+  padding: 20px 0;
+}
+.add-task button {
+  margin-left: 10px;
+}
+.add-task span.repeat.enabled {
+  color: #0094FD;
+}
+.add-task span.repeat.disabled {
+  color: #aaa;
+}
+
+.current-task p {
+  font-size: 2rem;
+}
+.current-task span.task {
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #eee;
+}
+input.was-selected {
+  border-color: blue;
+}
+input:hover, input:focus {
+  border-color: #ccc;
+}
