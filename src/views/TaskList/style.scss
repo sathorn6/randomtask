@@ -1,0 +1,22 @@
+@import "../../style/variables.scss";
+
+.task-list {
+  li {
+    padding: 5px 10px;
+    
+    span.repeat.enabled {
+      color: $uiPrimary;
+    }
+
+    span.delete, span.repeat.disabled {
+      display: none;
+    }
+
+    &:hover span {
+      display: inline-block !important;
+      &.repeat.enabled {
+        color: $uiPrimary;
+      }
+    }
+  }
+}

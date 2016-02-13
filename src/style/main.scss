@@ -1,4 +1,4 @@
-$uiPrimary: #0094FD;
+@import "variables.scss";
 
 html {
   font-size: 62.5%;
@@ -46,53 +46,6 @@ span.btn {
 
 .pull-right {
   float: right;
-}
-
-.task-list {
-  li {
-    padding: 5px 10px;
-    
-    span.repeat.enabled {
-      color: $uiPrimary;
-    }
-
-    span.delete, span.repeat.disabled {
-      display: none;
-    }
-
-    &:hover span {
-      display: inline-block !important;
-      &.repeat.enabled {
-        color: $uiPrimary;
-      }
-    }
-  }
-}
-
-.add-task {
-  padding: 20px 0;
-  
-  button {
-    margin-left: 10px;
-  }
-  
-  span.repeat.enabled {
-    color: $uiPrimary;
-  }
-
-  span.repeat.disabled {
-    color: #aaa;
-  }
-}
-
-.current-task {
-  p {
-    font-size: 2rem;
-  }
-  
-  span.task {
-    font-weight: bold;
-  }
 }
 
 input {

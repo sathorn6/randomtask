@@ -1,0 +1,17 @@
+@import "../../style/variables.scss";
+
+.add-task {
+  padding: 20px 0;
+  
+  button {
+    margin-left: 10px;
+  }
+  
+  span.repeat.enabled {
+    color: $uiPrimary;
+  }
+
+  span.repeat.disabled {
+    color: #aaa;
+  }
+}
