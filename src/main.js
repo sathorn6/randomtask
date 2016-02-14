@@ -17,6 +17,6 @@ TaskStore.listen((state) => {
 });
 
 ReactDOM.render(
-  <App />,
-  document.getElementById("mount")
+	<App />,
+  	document.getElementById("mount")
 );

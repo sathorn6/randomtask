@@ -5,22 +5,22 @@ import TaskList from "../TaskList/TaskList";
 import TaskStore from "../../stores/TaskStore";
 
 class App extends React.Component {
-  static getStores(props) {
-    return [TaskStore]
-  }
-  static getPropsFromStores(props) {
-    return TaskStore.getState()
-  }
-  render() {
-    if(this.props.selectedTask)
-      return <div>
-        <CurrentTask task={this.props.selectedTask} />
-      </div>;
-    else
-      return <div>
-        <TaskList tasks={this.props.tasks}/>
-       </div>;
-  }
+	static getStores(props) {
+		return [TaskStore]
+	}
+	static getPropsFromStores(props) {
+		return TaskStore.getState()
+	}
+	render() {
+		if(this.props.selectedTask)
+			return <div>
+				<CurrentTask task={this.props.selectedTask} />
+			</div>;
+		else
+			return <div>
+				<TaskList tasks={this.props.tasks}/>
+			 </div>;
+	}
 }
 
 export default connectToStores(App);
