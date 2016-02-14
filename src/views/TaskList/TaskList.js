@@ -1,6 +1,6 @@
 import React from "react";
 import AddTask from "../AddTask/AddTask";
-import Actions from "../../Actions";
+import Actions from "../../actions/TaskActions";
 
 import "./style.scss";
 

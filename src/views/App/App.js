@@ -1,31 +1,26 @@
 import React from "react";
+import connectToStores from "alt-utils/lib/connectToStores";
 import CurrentTask from "../CurrentTask/CurrentTask";
 import TaskList from "../TaskList/TaskList";
-import TaskStore from "../../TaskStore";
+import TaskStore from "../../stores/TaskStore";
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    TaskStore.onChange(() => {
-      this.setState(this.getState());
-    });
-
-    this.state = this.getState();
+class App extends React.Component {
+  static getStores(props) {
+    return [TaskStore]
   }
-  getState() {
-    return {
-      selectedTask: TaskStore.getSelectedTask(),
-      tasks: TaskStore.getTasks()
-    };
+  static getPropsFromStores(props) {
+    return TaskStore.getState()
   }
   render() {
-    if(this.state.selectedTask)
+    if(this.props.selectedTask)
       return <div>
-        <CurrentTask task={this.state.selectedTask} />
+        <CurrentTask task={this.props.selectedTask} />
       </div>;
     else
       return <div>
-        <TaskList tasks={this.state.tasks}/>
+        <TaskList tasks={this.props.tasks}/>
        </div>;
   }
 }
+
+export default connectToStores(App);
