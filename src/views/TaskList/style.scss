@@ -33,3 +33,26 @@
 		}
 	}
 }
+
+.task-anim-enter {
+  opacity: 0.01;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.task-anim-enter.task-anim-enter-active {
+  opacity: 1;
+  max-height: 100px;
+  transition: all 300ms ease-in-out;
+}
+
+.task-anim-leave {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.task-anim-leave.task-anim-leave-active {
+  opacity: 0.01;
+  transform: translateX(-300px);
+  transition: all 300ms ease-in-out;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import AddTask from "../AddTask/AddTask";
 import Actions from "../../actions/TaskActions";
 
@@ -21,9 +22,11 @@ export default class TaskList extends React.Component {
 		return <div className="task-list">
 			<h1>Tasks</h1>
 			<ol>
-				{this.props.tasks.map((task) => {
-					return <TaskListItem key={task.id} task={task} />
-				})}
+				<ReactCSSTransitionGroup transitionName="task-anim" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+          			{this.props.tasks.map((task) => {
+						return <TaskListItem key={task.id} task={task} />
+					})}
+				</ReactCSSTransitionGroup>
 			</ol>
 			<AddTask />
 			<button onClick={Actions.pickRandomTask} disabled={!this.props.tasks.length}>Roll</button>
