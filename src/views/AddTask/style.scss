@@ -1,7 +1,8 @@
 @import "../../style/variables.scss";
 
 .add-task {
-	padding: 20px 0;
+	margin: $componentSpacing 0;
+	padding-left: $listPadding + $inputPadding; 
 	
 	button {
 		margin-left: 10px;

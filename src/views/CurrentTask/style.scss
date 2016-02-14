@@ -1,5 +1,8 @@
+@import "../../style/variables.scss";
+
 .current-task {
 	p {
+		margin: $componentSpacing 0;
 		font-size: 2rem;
 	}
 	

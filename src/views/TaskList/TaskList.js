@@ -20,7 +20,7 @@ export default class TaskList extends React.Component {
 	render() {
 		return <div className="task-list">
 			<h1>Tasks</h1>
-			<ol className="task-list">
+			<ol>
 				{this.props.tasks.map((task) => {
 					return <TaskListItem key={task.id} task={task} />
 				})}

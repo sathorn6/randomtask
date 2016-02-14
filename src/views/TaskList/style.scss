@@ -1,8 +1,21 @@
 @import "../../style/variables.scss";
 
 .task-list {
+	ol {
+		margin: $componentSpacing 0;
+		padding-left: $listPadding;
+	}
+	
 	li {
-		padding: 5px 10px;
+		padding: 5px 0 5px $inputPadding;
+		
+		&:first-child {
+			padding-top: 0;
+		}
+		
+		&:last-child {
+			padding-bottom: 0;
+		}
 		
 		span.repeat.enabled {
 			color: $uiPrimary;

@@ -14,6 +14,12 @@ main {
 	margin: 0 auto;
 }
 
+h1 {
+	font-size: 3.2rem;
+	line-height: 2.4rem;
+	margin: $componentSpacing 0;
+}
+
 button {
 	background-color: $uiPrimary;
 	color: white;
@@ -44,11 +50,8 @@ span.btn {
 	}
 }
 
-.pull-right {
-	float: right;
-}
-
 input {
+	width: 350px;
 	padding: 10px;
 	border: 1px solid #eee;
 	
