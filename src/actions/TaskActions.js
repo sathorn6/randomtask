@@ -24,6 +24,7 @@ class TaskActions {
 		return (dispatch) => dispatch();
 	}
 	finishSelectedTask() {
+		ga('send', 'event', 'task', 'finish');
 		return (dispatch) => dispatch();
 	}
 };
