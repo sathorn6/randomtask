@@ -2,7 +2,10 @@
 
 .add-task {
 	margin: $componentSpacing 0;
-	padding-left: $listPadding + $inputPadding; 
+	padding-left: $listPadding + $inputPadding;
+	@media screen and (max-width: $breakSmall) {
+		padding-left: 0;
+	}
 	
 	button {
 		margin-left: 10px;

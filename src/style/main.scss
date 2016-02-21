@@ -10,7 +10,10 @@ body {
 
 main {
 	max-width: 500px;
-	padding: 0 50px 20px;
+	padding: 0 50px;
+	@media screen and (max-width: $breakSmall) {
+		padding: 0 15px;
+	}
 	margin: 0 auto;
 }
 
@@ -42,6 +45,9 @@ button {
 span.btn {
 	display: inline-block;
 	padding: 5px;
+	@media screen and (max-width: $breakSmall) {
+		padding: 10px;
+	}
 	color: #666;
 	cursor: pointer;
 	
@@ -52,6 +58,9 @@ span.btn {
 
 input {
 	width: 350px;
+	@media screen and (max-width: $breakSmall) {
+		width: 150px;
+	}
 	padding: 10px;
 	border: 1px solid #eee;
 	

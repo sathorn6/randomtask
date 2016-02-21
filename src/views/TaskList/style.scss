@@ -23,6 +23,9 @@
 		
 		span.delete, span.repeat.disabled {
 			display: none;
+			@media screen and (max-width: $breakSmall) {
+				display: inline-block;
+			}
 		}
 		
 		&:hover span {
@@ -31,6 +34,15 @@
 				color: $uiPrimary;
 			}
 		}
+	}
+}
+
+@media screen and (max-width: $breakSmall) {
+	.roll-button {
+		position: fixed;
+		right: 15px;
+		top: 20px;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 	}
 }
 

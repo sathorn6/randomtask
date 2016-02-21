@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import FastClick from "fastclick";
 import App from "./views/App/App";
 import alt from "./alt";
 import TaskStore from "./stores/TaskStore";
@@ -20,3 +21,5 @@ ReactDOM.render(
 	<App />,
   	document.getElementById("mount")
 );
+
+FastClick.attach(document.body);

@@ -29,7 +29,7 @@ export default class TaskList extends React.Component {
 				</ReactCSSTransitionGroup>
 			</ol>
 			<AddTask />
-			<button onClick={Actions.pickRandomTask} disabled={!this.props.tasks.length}>Roll</button>
+			<button className="roll-button" onClick={Actions.pickRandomTask} disabled={!this.props.tasks.length}>Roll</button>
 		</div>;
 	}
 }
