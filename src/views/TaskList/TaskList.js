@@ -14,15 +14,18 @@ class TaskListItem extends React.Component {
 				<input
 					className={task.wasSelected ? "selected" : ""}
 					placeholder="Enter a name..." value={task.name}
-					onChange={(event) => Actions.updateTask(task, event.target.value, task.repeats)}/>
+					onChange={(event) => Actions.updateTask(task, event.target.value, task.repeats)}
+				/>
 				<span
 					className={"btn repeat first " + (task.repeats ? "enabled" : "disabled")}
-					onClick={() => Actions.updateTask(task, task.name, !task.repeats)}>
+					onClick={() => Actions.updateTask(task, task.name, !task.repeats)}
+				>
 					<i className="fa fa-repeat" />
 				</span>
 				<span
 					className="btn delete last"
-					onClick={() => Actions.deleteTask(task)}>
+					onClick={() => Actions.deleteTask(task)}
+				>
 					<i className="fa fa-trash" />
 				</span>
 			</div>
@@ -42,7 +45,13 @@ export default class TaskList extends React.Component {
 				</ReactCSSTransitionGroup>
 			</ol>
 			<AddTask />
-			<button className="roll-button" onClick={Actions.pickRandomTask} disabled={!this.props.tasks.length}>Roll</button>
+			<button
+				className="roll-button"
+				onClick={Actions.pickRandomTask}
+				disabled={!this.props.tasks.length}
+			>
+				Roll
+			</button>
 		</div>;
 	}
 }
