@@ -3,12 +3,25 @@
 .add-task {
 	margin: $componentSpacing 0;
 	padding-left: $listPadding + $inputPadding;
+	
 	@media screen and (max-width: $breakSmall) {
 		padding-left: 0;
-	}
-	
-	button {
-		margin-left: 10px;
+		
+		.container {
+			display: table;
+			width: 100%;	
+		}
+		
+		input, span.repeat, .wrap {
+			display: table-cell;
+			box-sizing: border-box;
+			width: 1%;
+			white-space: nowrap;
+		}
+		
+		input {
+			width: 100%;
+		}
 	}
 	
 	span.repeat.enabled {

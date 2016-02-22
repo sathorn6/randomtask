@@ -10,9 +10,22 @@ class TaskListItem extends React.Component {
 		let task = this.props.task;
 		
 		return <li>
-			<input className={task.wasSelected ? "selected" : ""} placeholder="Enter a name..." value={task.name} onChange={(event) => Actions.updateTask(task, event.target.value, task.repeats)}/>
-			<span className={"btn repeat " + (task.repeats ? "enabled" : "disabled")} onClick={() => Actions.updateTask(task, task.name, !task.repeats)}><i className="fa fa-repeat" /></span>
-			<span className="btn delete" onClick={() => Actions.deleteTask(task)}><i className="fa fa-trash" /></span>
+			<div className="container">
+				<input
+					className={task.wasSelected ? "selected" : ""}
+					placeholder="Enter a name..." value={task.name}
+					onChange={(event) => Actions.updateTask(task, event.target.value, task.repeats)}/>
+				<span
+					className={"btn repeat first " + (task.repeats ? "enabled" : "disabled")}
+					onClick={() => Actions.updateTask(task, task.name, !task.repeats)}>
+					<i className="fa fa-repeat" />
+				</span>
+				<span
+					className="btn delete last"
+					onClick={() => Actions.deleteTask(task)}>
+					<i className="fa fa-trash" />
+				</span>
+			</div>
 		</li>;
 	}
 }

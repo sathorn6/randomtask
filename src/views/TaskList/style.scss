@@ -17,19 +17,37 @@
 			padding-bottom: 0;
 		}
 		
-		span.repeat.enabled {
-			color: $uiPrimary;
+		@media screen and (max-width: $breakSmall) {
+			.container {
+				display: inline-table;
+				width: 100%;
+			}
+			
+			input, span {
+				display: table-cell;
+				box-sizing: border-box;
+				width: 1%;
+				white-space: nowrap;
+			}
+			
+			input {
+				width: 100%;
+			}
+			
+			span.repeat.enabled {
+				color: $uiPrimary;
+			}
 		}
 		
 		span.delete, span.repeat.disabled {
-			display: none;
+			visibility: hidden;
 			@media screen and (max-width: $breakSmall) {
-				display: inline-block;
+				visibility: visible;
 			}
 		}
 		
 		&:hover span {
-			display: inline-block !important;
+			visibility: visible !important;
 			&.repeat.enabled {
 				color: $uiPrimary;
 			}

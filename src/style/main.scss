@@ -43,24 +43,29 @@ button {
 }
 
 span.btn {
+	$padding: 7px;
+	
 	display: inline-block;
-	padding: 5px;
-	@media screen and (max-width: $breakSmall) {
-		padding: 10px;
-	}
+	font-size: 20px;
+	padding: $padding;
 	color: #666;
 	cursor: pointer;
 	
 	&:hover {
 		color: #000;
 	}
+	
+	&.first {
+		padding-left: $padding * 2;
+	}
+	
+	&.last {
+		padding-right: $padding * 2;
+	}
 }
 
 input {
-	width: 350px;
-	@media screen and (max-width: $breakSmall) {
-		width: 150px;
-	}
+	width: 340px;
 	padding: 10px;
 	border: 1px solid #eee;
 	
