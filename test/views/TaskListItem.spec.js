@@ -36,18 +36,18 @@ describe("TaskListItem View", () => {
 		input.value = "My New Task";
 		ReactTestUtils.Simulate.change(input);
 		
-		expect(TaskActions.updateTask).toHaveBeenCalledWith(testTask, "My New Task", false);
+		expect(TaskActions.updateTask).toHaveBeenCalledWith(testTask.id, "My New Task", false);
 	});
 	
 	it("will toggle repeats", () => {
 		ReactTestUtils.Simulate.click(repeatsButton);
 		
-		expect(TaskActions.updateTask).toHaveBeenCalledWith(testTask, "My Task", true);
+		expect(TaskActions.updateTask).toHaveBeenCalledWith(testTask.id, "My Task", true);
 	});
 	
 	it("will delete the task", () => {
 		ReactTestUtils.Simulate.click(deleteButton);
 		
-		expect(TaskActions.deleteTask).toHaveBeenCalledWith(testTask);
+		expect(TaskActions.deleteTask).toHaveBeenCalledWith(testTask.id);
 	});
 });

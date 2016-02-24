@@ -24,7 +24,7 @@ class TaskActions {
 	pickRandomTask() {
 		return (dispatch) => dispatch();
 	}
-	finishSelectedTask() {
+	finishCurrentTask() {
 		analytics.sendEvent('task', 'finish');
 		return (dispatch) => dispatch();
 	}

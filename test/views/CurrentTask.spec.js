@@ -16,7 +16,7 @@ describe("CurrentTask View", () => {
 	};
 	
 	beforeAll(() => {
-		spyOn(TaskActions, "finishSelectedTask");
+		spyOn(TaskActions, "finishCurrentTask");
 	});
 	
 	it("can be rendered", () => {
@@ -30,6 +30,6 @@ describe("CurrentTask View", () => {
 	it("will finish a task", () => {
 		ReactTestUtils.Simulate.click(finishButton);
 		
-		expect(TaskActions.finishSelectedTask).toHaveBeenCalled();
+		expect(TaskActions.finishCurrentTask).toHaveBeenCalled();
 	});
 });

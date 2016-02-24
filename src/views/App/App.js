@@ -12,9 +12,9 @@ class App extends React.Component {
 		return TaskStore.getState()
 	}
 	render() {
-		if(this.props.selectedTask)
+		if(this.props.currentTask)
 			return <div>
-				<CurrentTask task={this.props.selectedTask} />
+				<CurrentTask task={this.props.currentTask} />
 			</div>;
 		else
 			return <div>

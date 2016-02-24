@@ -10,7 +10,7 @@ export default class CurrentTask extends React.Component {
 		return <div className="current-task">
 			<h1>Current Task</h1>
 			<p>Do <span className="task">&quot;{task.name}&quot;</span> now!</p>
-			<button onClick={Actions.finishSelectedTask}>Done</button>
+			<button onClick={Actions.finishCurrentTask}>Done</button>
 		</div>;
 	}
 }

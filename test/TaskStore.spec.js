@@ -1,3 +1,5 @@
+import "babel-polyfill";
+
 import TaskStore from "../src/stores/TaskStore";
 import TaskActions from "../src/actions/TaskActions";
 
@@ -14,7 +16,8 @@ describe("TaskStore", () => {
 		updateState();
 		
 		expect(state.tasks).toEqual([]);
-		expect(state.selectedTask).toEqual(null);
+		expect(state.currentTask).toEqual(null);
+		expect(state.previousTask).toEqual(null);
 	});
 	
 	it("can add a task", () => {
@@ -27,7 +30,7 @@ describe("TaskStore", () => {
 	});
 	
 	it("can update a task", () => {
-		TaskActions.updateTask(state.tasks[0], "My New Task", true);
+		TaskActions.updateTask(state.tasks[0].id, "My New Task", true);
 		
 		updateState();
 		
@@ -36,7 +39,7 @@ describe("TaskStore", () => {
 	});
 	
 	it("can delete a task", () => {
-		TaskActions.deleteTask(state.tasks[0]);
+		TaskActions.deleteTask(state.tasks[0].id);
 		
 		updateState();
 		
@@ -49,20 +52,20 @@ describe("TaskStore", () => {
 		
 		updateState();
 		
-		expect(state.selectedTask).toBe(state.tasks[0]);
+		expect(state.currentTask).toBe(state.tasks[0]);
 	});
 	
 	it("can finish a task", () => {
 		spyOn(analytics, "sendEvent");
 		
-		TaskActions.finishSelectedTask();
+		TaskActions.finishCurrentTask();
 		
 		expect(analytics.sendEvent).toHaveBeenCalledWith("task", "finish");
 		
 		updateState();
 		
 		expect(state.tasks.length).toBe(0);
-		expect(state.selectedTask).toBe(null);
+		expect(state.currentTask).toBe(null);
 	});
 	
 	it("keeps a repeating task", () => {
@@ -71,14 +74,14 @@ describe("TaskStore", () => {
 		
 		spyOn(analytics, "sendEvent");
 		
-		TaskActions.finishSelectedTask();
+		TaskActions.finishCurrentTask();
 		
 		expect(analytics.sendEvent).toHaveBeenCalledWith("task", "finish");
 		
 		updateState();
 		
 		expect(state.tasks.length).toBe(1);
-		expect(state.selectedTask).toBe(null);
+		expect(state.currentTask).toBe(null);
 		expect(state.previousTask).toBe(state.tasks[0]);
 	});
 });

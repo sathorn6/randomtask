@@ -3,7 +3,7 @@ import TaskActions from "../actions/TaskActions";
 
 class TaskStore {
 	constructor() {
-		this.selectedTask = null;
+		this.currentTask = null;
 		this.previousTask = null;
 		this.tasks = [];
 
@@ -13,28 +13,19 @@ class TaskStore {
 			handleUpdateTask: TaskActions.UPDATE_TASK,
 			deleteTask: TaskActions.DELETE_TASK,
 			handlePickRandomTask: TaskActions.PICK_RANDOM_TASK,
-			handleFinishSelectedTask: TaskActions.FINISH_SELECTED_TASK,
+			handleFinishCurrentTask: TaskActions.FINISH_CURRENT_TASK,
 		});
 	}
 
-	getTasks() {
-		return this.tasks;
-	}
-
 	getTask(id) {
-		const index = this.tasks.indexOf(id);
-		if (index == -1)
+		const task = this.tasks.find(function(task) {
+			return task.id == id
+		});
+		
+		if (!task)
 			throw new Error("Task not found");
 
-		return this.tasks[index];
-	}
-
-	getTaskByIndex(index) {
-		return this.tasks[index];
-	}
-
-	getSelectedTask() {
-		return this.selectedTask;
+		return task;
 	}
 	
 	handleSetTasks(tasks) {
@@ -61,18 +52,20 @@ class TaskStore {
 	}
 
 	deleteTask(id) {
-		const index = this.tasks.indexOf(id);
+		const task = this.getTask(id);
+		const index = this.tasks.indexOf(task);
+		
 		if (index == -1)
 			throw new Error("Task not found");
 
 		this.tasks.splice(index, 1);
 	}
 
-	setSelectedTask(id) {
-		if (id != null)
-			this.selectedTask = this.getTask(id);
+	setCurrentTask(task) {
+		if (task != null)
+			this.currentTask = task;
 		else
-			this.selectedTask = null;
+			this.currentTask = null;
 	}
 	
 	handlePickRandomTask() {
@@ -90,11 +83,11 @@ class TaskStore {
 			task = this.tasks[0];
 		}
 		
-		this.setSelectedTask(task);
+		this.setCurrentTask(task);
 	}
 	
-	handleFinishSelectedTask() {
-		const selected = this.selectedTask;
+	handleFinishCurrentTask() {
+		const selected = this.currentTask;
 
 		if (!selected)
 			return;
@@ -102,11 +95,11 @@ class TaskStore {
 		this.previousTask = null; 
 		
 		if (!selected.repeats)
-			this.deleteTask(selected);
+			this.deleteTask(selected.id);
 		else
 			this.previousTask = selected;
 			
-		this.setSelectedTask(null);
+		this.setCurrentTask(null);
 	}
 }
 

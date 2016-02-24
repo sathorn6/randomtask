@@ -9,17 +9,17 @@ export default class TaskListItem extends React.Component {
 			<div className="container">
 				<input
 					placeholder="Enter a name..." value={task.name}
-					onChange={(event) => Actions.updateTask(task, event.target.value, task.repeats)}
+					onChange={(event) => Actions.updateTask(task.id, event.target.value, task.repeats)}
 				/>
 				<span
 					className={"btn repeat first " + (task.repeats ? "enabled" : "disabled")}
-					onClick={() => Actions.updateTask(task, task.name, !task.repeats)}
+					onClick={() => Actions.updateTask(task.id, task.name, !task.repeats)}
 				>
 					<i className="fa fa-repeat" />
 				</span>
 				<span
 					className="btn delete last"
-					onClick={() => Actions.deleteTask(task)}
+					onClick={() => Actions.deleteTask(task.id)}
 				>
 					<i className="fa fa-trash" />
 				</span>
