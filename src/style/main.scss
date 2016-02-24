@@ -24,11 +24,17 @@ h1 {
 }
 
 button {
+	$activeColor: lighten($uiPrimary, 20%);
+	
 	background-color: $uiPrimary;
 	color: white;
 	padding: 15px;
 	border: none;
 	border-radius: 5px;
+	
+	&:hover {
+		background-color: $activeColor;
+	}
 	
 	&[disabled] {
 		background-color: #999;
@@ -39,6 +45,11 @@ button {
 		padding: 10px;
 		background: none;
 		border: 1px solid $uiPrimary;
+		
+		&:hover {
+			color: $activeColor;
+			border-color: $activeColor;
+		}
 	}
 }
 
