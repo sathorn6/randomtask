@@ -1,4 +1,5 @@
 import alt from "../alt";
+import analytics from "../analytics";
 
 class TaskActions {
 	setTasks(tasks) {
@@ -24,7 +25,7 @@ class TaskActions {
 		return (dispatch) => dispatch();
 	}
 	finishSelectedTask() {
-		ga('send', 'event', 'task', 'finish');
+		analytics.sendEvent('task', 'finish');
 		return (dispatch) => dispatch();
 	}
 };
