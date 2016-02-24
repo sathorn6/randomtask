@@ -4,6 +4,7 @@ import TaskActions from "../actions/TaskActions";
 class TaskStore {
 	constructor() {
 		this.selectedTask = null;
+		this.previousTask = null;
 		this.tasks = [];
 
 		this.bindListeners({
@@ -44,8 +45,7 @@ class TaskStore {
 		let task = {
 			id: Date.now(),
 			name,
-			repeats,
-			wasSelected: false
+			repeats
 		};
 
 		this.tasks.push(task);
@@ -55,7 +55,9 @@ class TaskStore {
 		let task = this.getTask(id);
 		task.name = name;
 		task.repeats = repeats;
-		task.wasSelected = false;
+		
+		if(this.previousTask == task)
+			this.previousTask = null;
 	}
 
 	deleteTask(id) {
@@ -67,10 +69,6 @@ class TaskStore {
 	}
 
 	setSelectedTask(id) {
-		this.tasks.forEach((task) => {
-			task.wasSelected = (task == this.selectedTask);
-		});
-
 		if (id != null)
 			this.selectedTask = this.getTask(id);
 		else
@@ -78,8 +76,21 @@ class TaskStore {
 	}
 	
 	handlePickRandomTask() {
-		const index = Math.floor(Math.random() * this.tasks.length);
-		this.setSelectedTask(this.getTaskByIndex(index));
+		let task;
+		
+		if(!this.tasks.length)
+			throw new Error("No tasks available to pick from");
+		
+		if(this.tasks.length > 1) {
+			// Avoid picking the same task twice in a row
+			const candidates = this.tasks.filter((task) => task != this.previousTask);
+			const index = Math.floor(Math.random() * candidates.length);
+			task = candidates[index];
+		} else {
+			task = this.tasks[0];
+		}
+		
+		this.setSelectedTask(task);
 	}
 	
 	handleFinishSelectedTask() {
@@ -88,9 +99,13 @@ class TaskStore {
 		if (!selected)
 			return;
 
+		this.previousTask = null; 
+		
 		if (!selected.repeats)
 			this.deleteTask(selected);
-
+		else
+			this.previousTask = selected;
+			
 		this.setSelectedTask(null);
 	}
 }

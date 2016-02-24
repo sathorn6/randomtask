@@ -83,10 +83,6 @@ input {
 	padding: 10px;
 	border: 1px solid #e4e4e4;
 	
-	&.was-selected {
-		border-color: blue;
-	}
-	
 	&:hover, &:focus {
 		border-color: #bbb;
 	}

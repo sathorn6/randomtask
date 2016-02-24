@@ -8,7 +8,6 @@ export default class TaskListItem extends React.Component {
 		return <li>
 			<div className="container">
 				<input
-					className={task.wasSelected ? "selected" : ""}
 					placeholder="Enter a name..." value={task.name}
 					onChange={(event) => Actions.updateTask(task, event.target.value, task.repeats)}
 				/>

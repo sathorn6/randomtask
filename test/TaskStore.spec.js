@@ -79,5 +79,6 @@ describe("TaskStore", () => {
 		
 		expect(state.tasks.length).toBe(1);
 		expect(state.selectedTask).toBe(null);
+		expect(state.previousTask).toBe(state.tasks[0]);
 	});
 });
