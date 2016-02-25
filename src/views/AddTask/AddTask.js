@@ -43,13 +43,13 @@ export default class AddTask extends React.Component {
 				}}
 			/>
 			<span
-				className={"btn repeat first last " + (this.state.repeats ? "enabled" : "disabled")}
+				className={"toggle repeat first last " + (this.state.repeats ? "enabled" : "disabled")}
 				onClick={this.toggleRepeats.bind(this)}
 			>
 				<i className="fa fa-repeat" />
 			</span>
 			<span className="wrap">
-				<button className="small" onClick={this.addTask.bind(this)}>Add</button>
+				<button className="btn btn-default" onClick={this.addTask.bind(this)}>Add</button>
 			</span>
 		</div></div>;
 	}

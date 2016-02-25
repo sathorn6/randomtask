@@ -26,37 +26,41 @@ h1 {
 	margin: $componentSpacing 0;
 }
 
-button {
-	$activeColor: lighten($uiPrimary, 20%);
-	
+.btn {
+	border-radius: 5px;
+}
+
+.btn-primary {
 	background-color: $uiPrimary;
 	color: white;
 	padding: 15px;
 	border: none;
-	border-radius: 5px;
 	
-	&:hover {
-		background-color: $activeColor;
+	@at-root .has-hover &:hover,
+	&:active {
+		background-color: $uiPrimaryActive;
 	}
 	
+	@at-root .has-hover &[disabled], // Fix specificity
 	&[disabled] {
 		background-color: #999;
 	}
+}
+
+.btn-default {
+	color: $uiPrimary;
+	padding: 10px;
+	background: none;
+	border: 1px solid $uiPrimary;
 	
-	&.small {
-		color: $uiPrimary;
-		padding: 10px;
-		background: none;
-		border: 1px solid $uiPrimary;
-		
-		&:hover {
-			color: $activeColor;
-			border-color: $activeColor;
-		}
+	@at-root .has-hover &:hover,
+	&:active {
+		color: $uiPrimaryActive;
+		border-color: $uiPrimaryActive;
 	}
 }
 
-span.btn {
+.toggle {
 	$padding: 7px;
 	
 	display: inline-block;
@@ -65,7 +69,7 @@ span.btn {
 	color: #666;
 	cursor: pointer;
 	
-	&:hover {
+	@at-root .has-hover &:hover {
 		color: #000;
 	}
 	
@@ -83,7 +87,8 @@ input {
 	padding: 10px;
 	border: 1px solid #e4e4e4;
 	
-	&:hover, &:focus {
+	@at-root .has-hover &:hover,
+	&:focus {
 		border-color: #bbb;
 	}
 	

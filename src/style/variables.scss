@@ -1,6 +1,7 @@
 $breakSmall: 600px;
 
 $uiPrimary: #0094FD;
+$uiPrimaryActive: lighten($uiPrimary, 15%);
 $componentSpacing: 35px;
 $listPadding: 30px;
 $inputPadding: 10px;

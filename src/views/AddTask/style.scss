@@ -12,7 +12,7 @@
 			width: 100%;	
 		}
 		
-		input, span.repeat, .wrap {
+		input, .toggle.repeat, .wrap {
 			display: table-cell;
 			box-sizing: border-box;
 			width: 1%;
@@ -24,14 +24,14 @@
 		}
 	}
 	
-	span.repeat.enabled {
+	.toggle.repeat.enabled {
 		color: $uiPrimary;
 	}
 	
-	span.repeat.disabled {
+	.toggle.repeat.disabled {
 		color: #aaa;
 		
-		&:hover {
+		@at-root .has-hover &:hover {
 			color: black;
 		}
 	}
