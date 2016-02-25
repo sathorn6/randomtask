@@ -86,4 +86,8 @@ input {
 	&:hover, &:focus {
 		border-color: #bbb;
 	}
+	
+	// Overwrite iOS default style 
+	-webkit-appearance: none;
+	border-radius: 0;
 }
