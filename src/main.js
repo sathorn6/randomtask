@@ -13,7 +13,20 @@ import TaskActions from "./actions/TaskActions";
 
 const isTouch = ("ontouchstart" in window) || window.navigator.msMaxTouchPoints > 0;
 
-if(!isTouch) { // Fix permanent hover state on touch devices
+if(isTouch) {
+	// Move click event handlers from document to root because they cause flickering
+	// on iOS which cannot be prevented on document (via -webkit-tap-highlight-color)
+	
+	const documentAddEL = document.addEventListener.bind(document);
+
+	document.addEventListener = function(type, listener, useCapture) {
+		if(type == "click" && !useCapture)
+			document.documentElement.addEventListener(type, listener, useCapture);
+		else
+			documentAddEL(type, listener, useCapture);
+	}
+} else {
+	// Fix permanent hover state on touch devices
     document.documentElement.className += " has-hover";
 }
 
