@@ -8,7 +8,7 @@ import alt from "./alt";
 import TaskStore from "./stores/TaskStore";
 import TaskActions from "./actions/TaskActions";
 
-import "./style/normalize.css";
+import "normalize.css";
 import "./style/main.scss";
 
 
