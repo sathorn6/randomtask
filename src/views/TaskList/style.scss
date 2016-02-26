@@ -33,35 +33,26 @@
 			input {
 				width: 100%;
 			}
-			
-			.toggle.repeat.enabled {
-				color: $uiPrimary;
-			}
 		}
 		
-		.toggle.delete, .toggle.repeat.disabled {
-			visibility: hidden;
-			@media screen and (max-width: $breakSmall) {
+		@at-root .has-hover & {
+			.toggle {
+				visibility: hidden;
+			
+				&.is-enabled {
+					visibility: visible;
+					color: #666 !important;
+				}
+			}
+			
+			&:hover .toggle {
 				visibility: visible;
+				
+				&.is-enabled {
+					color: $uiPrimary !important;
+				}
 			}
 		}
-		
-		@at-root .has-hover &:hover .toggle {
-			visibility: visible;
-			
-			&.repeat.enabled {
-				color: $uiPrimary;
-			}
-		}
-	}
-}
-
-@media screen and (max-width: $breakSmall) {
-	.roll-button {
-		position: fixed;
-		right: 15px;
-		top: 20px;
-		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 	}
 }
 

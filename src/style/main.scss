@@ -62,25 +62,39 @@ h1 {
 	}
 }
 
+@media screen and (max-width: $breakSmall) {
+	.btn-float {
+		position: fixed;
+		right: 15px;
+		top: 20px;
+		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+	}
+}
+
 .toggle {
 	$padding: 7px;
 	
 	display: inline-block;
 	font-size: 20px;
 	padding: $padding;
-	color: #666;
+	color: #aaa;
 	cursor: pointer;
 	user-select: none;
 	
-	@at-root .has-hover &:hover {
+	@at-root .has-hover &:hover,
+	&:active {
 		color: #000;
 	}
 	
-	&.first {
+	&.is-enabled {
+		color: $uiPrimary !important;
+	}
+	
+	&:first-of-type {
 		padding-left: $padding * 2;
 	}
 	
-	&.last {
+	&:last-of-type {
 		padding-right: $padding * 2;
 	}
 }

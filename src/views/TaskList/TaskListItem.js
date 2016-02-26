@@ -12,13 +12,13 @@ export default class TaskListItem extends React.Component {
 					onChange={(event) => Actions.updateTask(task.id, event.target.value, task.repeats)}
 				/>
 				<span
-					className={"toggle repeat first " + (task.repeats ? "enabled" : "disabled")}
+					className={"toggle " + (task.repeats ? "is-enabled" : "")}
 					onClick={() => Actions.updateTask(task.id, task.name, !task.repeats)}
 				>
 					<i className="fa fa-repeat" />
 				</span>
 				<span
-					className="toggle delete last"
+					className="toggle"
 					onClick={() => Actions.deleteTask(task.id)}
 				>
 					<i className="fa fa-trash" />

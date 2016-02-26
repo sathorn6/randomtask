@@ -19,7 +19,7 @@ export default class TaskList extends React.Component {
 			</ol>
 			<AddTask />
 			<button
-				className="btn btn-primary roll-button"
+				className="btn btn-primary btn-float"
 				onClick={Actions.pickRandomTask}
 				disabled={!this.props.tasks.length}
 			>

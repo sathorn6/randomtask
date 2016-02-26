@@ -28,8 +28,10 @@ describe("TaskListItem View", () => {
 		);
 		
 		input = ReactTestUtils.findRenderedDOMComponentWithTag(tree, "input");
-		repeatsButton = ReactTestUtils.findRenderedDOMComponentWithClass(tree, "repeat");
-		deleteButton = ReactTestUtils.findRenderedDOMComponentWithClass(tree, "delete");
+		
+		const matches = ReactTestUtils.scryRenderedDOMComponentsWithClass(tree, "toggle");
+		repeatsButton = matches[0];
+		deleteButton = matches[1];
 	});
 	
 	it("will change the name", () => {

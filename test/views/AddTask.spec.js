@@ -17,7 +17,7 @@ describe("AddTask View", () => {
 		);
 		
 		input = ReactTestUtils.findRenderedDOMComponentWithTag(tree, "input");
-		repeatsButton = ReactTestUtils.findRenderedDOMComponentWithClass(tree, "repeat");
+		repeatsButton = ReactTestUtils.findRenderedDOMComponentWithClass(tree, "toggle");
 		addButton = ReactTestUtils.findRenderedDOMComponentWithTag(tree, "button");
 	});
 	

@@ -24,7 +24,7 @@ describe("TaskList View", () => {
 			<TaskList tasks={testTasks}/>
 		);
 		
-		rollButton = ReactTestUtils.findRenderedDOMComponentWithClass(tree, "roll-button");
+		rollButton = ReactTestUtils.findRenderedDOMComponentWithClass(tree, "btn-primary");
 	});
 	
 	it("will roll a task", () => {
