@@ -29,6 +29,7 @@ h1 {
 
 .btn {
 	border-radius: 5px;
+	user-select: none;
 }
 
 .btn-primary {
@@ -69,6 +70,7 @@ h1 {
 	padding: $padding;
 	color: #666;
 	cursor: pointer;
+	user-select: none;
 	
 	@at-root .has-hover &:hover {
 		color: #000;
