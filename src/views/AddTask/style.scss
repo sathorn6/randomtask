@@ -4,7 +4,7 @@
 	margin: $componentSpacing 0;
 	padding-left: $listPadding + $inputPadding;
 	
-	.wrap {
+	.wrap-input, .wrap-button {
 		display: inline;
 	}
 	
@@ -16,15 +16,16 @@
 			width: 100%;	
 		}
 		
-		input, .toggle, .wrap {
+		.wrap-input, .toggle, .wrap-button {
 			display: table-cell;
 			box-sizing: border-box;
 			width: 1%;
 			white-space: nowrap;
 		}
 		
-		input {
+		.wrap-input, input {
 			width: 100%;
+			box-sizing: border-box;
 		}
 	}
 }
