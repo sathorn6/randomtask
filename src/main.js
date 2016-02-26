@@ -34,7 +34,9 @@ if(window.localStorage.taskStoreData)
 	TaskActions.setTasks(JSON.parse(window.localStorage.taskStoreData));
 	
 TaskStore.listen((state) => {
-	window.localStorage.taskStoreData = JSON.stringify(state.tasks);
+	try {
+		window.localStorage.taskStoreData = JSON.stringify(state.tasks);
+	} catch(error) {}
 });
 
 ReactDOM.render(
