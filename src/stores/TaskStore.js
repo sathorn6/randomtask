@@ -1,5 +1,6 @@
 import alt from "../alt";
 import TaskActions from "../actions/TaskActions";
+import UndoStore from "./UndoStore";
 
 class TaskStore {
 	constructor() {
@@ -11,9 +12,13 @@ class TaskStore {
 			handleSetTasks: TaskActions.SET_TASKS,
 			handleCreateTask: TaskActions.CREATE_TASK,
 			handleUpdateTask: TaskActions.UPDATE_TASK,
-			deleteTask: TaskActions.DELETE_TASK,
+			handleDeleteTask: TaskActions.DELETE_TASK,
 			handlePickRandomTask: TaskActions.PICK_RANDOM_TASK,
 			handleFinishCurrentTask: TaskActions.FINISH_CURRENT_TASK,
+		});
+		
+		this.exportPublicMethods({
+			getTask: this.getTask.bind(this)
 		});
 	}
 
@@ -59,6 +64,11 @@ class TaskStore {
 			throw new Error("Task not found");
 
 		this.tasks.splice(index, 1);
+	}
+	
+	handleDeleteTask(id) {
+		this.waitFor(UndoStore);
+		this.deleteTask(id);
 	}
 
 	setCurrentTask(task) {
