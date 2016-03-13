@@ -4,12 +4,13 @@ var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
 var webpackConfig = require("./webpack.config.js");
 var del = require("del");
+var manifest = require("gulp-manifest");
 
 // The development server (the recommended option for development)
 gulp.task("default", ["webpack-dev-server"]);
 
 // Production build
-gulp.task("build", ["webpack:build"]);
+gulp.task("build", ["webpack:build", "manifest"]);
 
 // Development build
 gulp.task("build-dev", ["webpack:build-dev"]);
@@ -18,7 +19,26 @@ gulp.task("clean", function() {
 	return del(["build"]);
 });
 
-gulp.task("webpack:build", ['clean'], function(callback) {
+gulp.task("manifest", ["clean", "webpack:build"], function(callback) {
+	gulp.src([
+		"build/*",
+	])
+	.pipe(manifest({
+		cache: [
+			"../index.html",
+			"https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css",
+			"https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff?v=4.5.0"
+		],
+		hash: true,
+		preferOnline: true,
+		network: ["*"],
+		filename: "app.appcache",
+		exclude: "app.appcache"
+	}))
+	.pipe(gulp.dest("build"));
+});
+ 
+ gulp.task("webpack:build", ["clean"], function(callback) {
 	// modify some webpack config options
 	var config = Object.create(webpackConfig);
 	config.plugins = config.plugins.concat(
