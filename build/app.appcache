@@ -1,0 +1,16 @@
+CACHE MANIFEST
+
+CACHE:
+../index.html
+https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
+https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff?v=4.5.0
+bundle.js
+main.css
+
+NETWORK:
+*
+
+SETTINGS:
+prefer-online
+
+# hash: 57e44ea728fa43f7d73c43d1628add0a60b4081ef180aaa1ddb03918010a7899
