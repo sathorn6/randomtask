@@ -40,7 +40,7 @@ export default class AddTask extends React.Component {
 						value={this.state.name}
 						onChange={this.updateName.bind(this)}
 						onKeyDown={(event) => {
-							if(event.keyCode == 13)
+							if(event.keyCode == 13 && this.state.name.length != 0)
 								this.addTask();
 						}}
 					/>
@@ -52,7 +52,7 @@ export default class AddTask extends React.Component {
 					<i className="fa fa-repeat" />
 				</span>
 				<div className="wrap-button">
-					<button className="btn btn-default" onClick={this.addTask.bind(this)}>Add</button>
+					<button className="btn btn-default" onClick={this.addTask.bind(this)} disabled={this.state.name.length == 0}>Add</button>
 				</div>
 			</div>
 		</div>;

@@ -60,6 +60,12 @@ h1 {
 		color: $uiPrimaryActive;
 		border-color: $uiPrimaryActive;
 	}
+	
+	@at-root .has-hover &[disabled], // Fix specificity
+	&[disabled] {
+		color: #999;
+		border-color: #999;
+	}
 }
 
 @media screen and (max-width: $breakSmall) {

@@ -21,6 +21,27 @@ describe("AddTask View", () => {
 		addButton = ReactTestUtils.findRenderedDOMComponentWithTag(tree, "button");
 	});
 	
+	it("will not create empty tasks and disable add button", () => {
+		spyOn(TaskActions, "createTask");
+		
+		expect(addButton.disabled).toBe(true);
+		
+		input.value = "M";
+		ReactTestUtils.Simulate.change(input);
+		
+		expect(addButton.disabled).toBe(false);
+		
+		input.value = "";
+		ReactTestUtils.Simulate.change(input);
+		
+		expect(addButton.disabled).toBe(true);
+		
+		ReactTestUtils.Simulate.click(addButton);
+		ReactTestUtils.Simulate.keyDown(input, {keyCode: 13});
+		
+		expect(TaskActions.createTask.calls.any()).toBe(false);
+	})
+	
 	it("will create a task", () => {
 		spyOn(TaskActions, "createTask");
 		
